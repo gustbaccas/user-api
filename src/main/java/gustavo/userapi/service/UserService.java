@@ -21,7 +21,8 @@ public class UserService {
     }
 
     public UserEntity findById(Integer id) {
-        return repository.findById(id).orElse(null);
+        return repository.findById(id).
+                orElseThrow(() -> new RuntimeException("Usuário não encontrado!"));
     }
 
     public List<UserEntity> findAll() {
